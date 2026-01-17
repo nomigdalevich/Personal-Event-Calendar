@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>חיפוש ארועים</title>
+  <link rel="stylesheet" href="searchEvent.css" />
+  <script defer src="searchEvent.js"></script>
+</head>
+<body dir="rtl">
+
+  <form id="searchForm">
+    <div class="form-group">
+      <label for="dateS">הזן תאריך ארוע</label>
+      <input type="date" id="dateS" name="dateS" />
+    </div>
+
+    <div class="form-group">
+      <label for="titleS">הזן כותרת ארוע</label>
+      <input type="text" id="titleS" name="titleS" />
+    </div>
+
+    <div class="form-group full">
+      <label for="desS">הזן תיאור ארוע</label>
+      <input type="text" id="desS" name="desS" />
+    </div>
+<div class="button-container myButtons">
+  <button type="button" onclick="funcSearch()">לחיפוש</button>
+  <button type="button" onclick="funcCl()">ללוח שנה</button>
+</div>
+
+  </form>
+
+  <div id="playEvent"></div>
+</body>
+</html>

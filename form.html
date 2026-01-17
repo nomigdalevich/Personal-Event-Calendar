@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <title>טופס בדיקה</title>
+  <link rel="stylesheet" href="form.css">
+  <script src="form.js" defer></script>
+</head>
+<body dir="rtl">
+  <form>
+    <h2>הרשמה</h2>
+
+    <div>
+      <label>הכנס שם פרטי:</label>
+      <input id="firstName" type="text" onkeypress="isLetters(event)" placeholder="הקלד את שמך הפרטי">
+      <label id="warningLable1" class="labelHidd">חובה למלא שם פרטי.</label>
+    </div>
+
+    <div>
+      <label>הכנס שם משפחה:</label>
+      <input id="lastName" type="text" onkeypress="isLetters(event)" placeholder="הקלד את שם המשפחה שלך">
+      <label id="warningLable2" class="labelHidd">חובה למלא שם משפחה.</label>
+    </div>
+
+    <div>
+      <label>הכנס תעודת זהות:</label>
+      <input id="idInput" type="text" minlength="9" maxlength="9" onkeypress="isDigit(event)" placeholder="9 ספרות">
+      <label id="warningId" class="labelHidd">ת.ז לא תקינה.</label>
+    </div>
+
+    <div>
+      <label>הכנס סיסמה:</label>
+      <input id="passwordInput" type="text" placeholder="הכנס סיסמה">
+      <label id="warningPassword" class="labelHidd">סיסמה צריכה להיות בת 8 תווים לפחות ולהתחיל באות גדולה</label>
+    </div>
+
+    <div>
+      <label>כתובת מייל:</label>
+      <input id="emailInput" type="email" placeholder="example@example.com">
+      <label id="warningEmail" class="labelHidd">כתובת מייל לא תקינה.</label>
+    </div>
+
+    <div>
+      <label>הכנס מספר טלפון:</label>
+      <input id="phoneNum" type="tel" onkeypress="isDigit(event)" minlength="10" maxlength="10" placeholder="מספר בן 10 ספרות">
+      <label id="warningPhone" class="labelHidd">מספר טלפון לא תקין.</label>
+    </div>
+
+    <input type="button" value="לאישור" onclick="checkForm()">
+    <label id="message" class="labelHidd"></label>
+  </form>
+  <!-- כפתור יציאה עגול עם אייקון -->
+<button id="logoutBtn" class="logout-button" title="התנתק">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24">
+    <path d="M16 13v-2H7V8l-5 4 5 4v-3h9zM20 3H10c-1.1 0-2 .9-2 2v4h2V5h10v14H10v-4H8v4c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+  </svg>
+</button>
+
+</body>
+</html>

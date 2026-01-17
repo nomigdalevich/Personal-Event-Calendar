@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../פרויקט/event.js"></script>
+    <script src="../פרויקט/calender.js"></script>
+
+    <link rel="stylesheet" href="../פרויקט/calender.css">
+
+</head>
+
+<body onload="loadId()" dir="ltr">
+    <!-- onload="loadId()" -->
+
+    <div class="monthGo">
+        <h1 id="thisMonth" hidden></h1>
+        <h1 id="thisCountDay" hidden></h1>
+        <button type="button" onclick="funcMonthBefor()"> < </button>
+                <h1 id="thisMonthName"></h1>
+                <button type="button" onclick="funcMonthAfter()">></button>
+    </div>
+
+    <!-- <div class="tableThisDateEvent"> -->
+    <!-- <div class="buttoms"> -->
+    <div class="floatingButtons">
+        <button onclick="loadId()">לחזרה לתאריך הנוכחי</button>
+        <button onclick="funcEventPage()">להוספת ארוע</button>
+        <button onclick="funcSearchEvent()">לחיפוש ארוע</button>
+    </div>
+    <br>
+    <!-- </div> -->
+    <div class="calendarBox">
+        <div class="tableAndThisDate">
+
+            <table id="calender">
+                <th>Sat</th>
+                <th>Fri</th>
+                <th>Thu</th>
+                <th>Wed</th>
+                <th>Tue</th>
+                <th>Mon</th>
+                <th>Sun</th>
+
+                <tr>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+                </tr>
+
+                <tr>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+                </tr>
+                <tr>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+                </tr>
+                <tr>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+
+                </tr>
+                <tr>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+
+                </tr>
+                <tr>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+                    <td onclick="funcPresentEvent(this)"></td>
+
+                </tr>
+            </table>
+
+            <div class="thisdateAndButtons">
+                <div class="dateBoxWrapper">
+                    <div class="thisDateboard" id="thisDateboard">
+                        <div class="monthAndYear">
+                            <p id="year"></p>
+                            <p id="month"></p>
+                        </div>
+                        <p id="day"></p>
+                        <p id="dayWord"></p>
+                    </div>
+                </div>
+
+                <div class="divWithEventDate" id="divWithEventDate">כאן יופיע הארוע הנבחר</div>
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+
+    </div>
+    </div>
+    <!-- כפתור יציאה עגול עם אייקון -->
+    <button id="logoutBtn" class="logout-button" title="התנתק" onclick="funcCalender()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24">
+            <path
+                d="M16 13v-2H7V8l-5 4 5 4v-3h9zM20 3H10c-1.1 0-2 .9-2 2v4h2V5h10v14H10v-4H8v4c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" />
+        </svg>
+    </button>
+
+</body>
+
+</html>

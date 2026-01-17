@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  direction: rtl;
+  font-family: 'Rubik', sans-serif;
+}
+
+/* 🟢 שינוי כאן: הפכנו את body לקופסה מרכזת */
+body {
+  background: url("./img/img1.png") no-repeat center center;
+  background-size: cover;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* 🟢 מרכז לאורך */
+  align-items: center;       /* 🟢 מרכז לרוחב */
+  padding: 40px;
+}
+
+/* 🟢 מוודא שהתוכן מעל הרקע */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.12) 50%, transparent 60%);
+  background-size: 300% 300%;
+  animation: flowDiagonalLight 12s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes flowDiagonalLight {
+  0% { background-position: -150% -150%; }
+  100% { background-position: 150% 150%; }
+}
+
+#searchForm {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  padding: 15px 20px;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: nowrap;
+  margin-bottom: 30px;
+  justify-content: center;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+  flex: 1 1 180px;
+}
+
+.form-group.full {
+  flex: 2 1 300px;
+}
+
+label {
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: white;
+}
+
+input[type="text"],
+input[type="date"] {
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #000;
+  font-size: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.1);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  height: 42px;
+  margin-top: 22px;
+}
+
+button {
+  height: 36px;
+  padding: 0 20px;
+  background: rgb(56, 73, 151);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.0);
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: normal;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.1);
+  white-space: nowrap;
+}
+
+button:hover {
+  background-color: #3756c0;
+  transform: scale(1.05);
+}
+
+.myButtons {
+  display: flex;
+  gap: 10px;
+}
+
+/* 🟢 מוסיפים יישור לטבלה */
+.resultsTable {
+  margin: 20px auto;  /* 🟢 מרכז את הטבלה לרוחב */
+  width: 100%;
+  max-width: 1000px;
+  border-collapse: separate;
+  border-spacing: 12px 14px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.resultsTable th {
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 16px;
+  font-size: 17px;
+  font-weight: medium;
+  border-radius: 10px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.resultsTable td {
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  padding: 18px 18px;
+  font-size: 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.2);
+  backdrop-filter: blur(8px);
+  font-weight: normal;
+  text-align: center;
+  transition: background 0.2s ease;
+  cursor: default;
+}
+
+.resultsTable tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.resultsTable tr:hover td {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+#playEvent {
+  display: flex;        /* 🟢 מרכז את התוכן שבתוך התוצאה */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* אם אין תוצאות */
+#playEvent p {
+  text-align: center;
+  font-size: 18px;
+  color: white;
+  margin-top: 20px;
+}
+
+/* רספונסיבי */
+@media (max-width: 720px) {
+  #searchForm {
+    flex-direction: column;
+    padding: 20px;
+    flex-wrap: wrap;
+  }
+
+  .form-group {
+    width: 100%;
+    flex: none;
+    margin-bottom: 12px;
+  }
+
+  .button-container {
+    justify-content: center;
+    margin-top: 0;
+    height: auto;
+  }
+
+  button {
+    width: 100%;
+    height: 42px;
+  }
+
+  .resultsTable {
+    width: 95%;
+  }
+}
+
+/**/
+.user-profile {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 10px 18px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 100;
+  cursor: default;
+  transition: background 0.3s ease;
+}
+
+.user-profile:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+#userInitials {
+  background-color: #3756c0;
+  color: white;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}

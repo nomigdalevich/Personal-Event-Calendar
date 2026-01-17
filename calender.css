@@ -1,0 +1,390 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  direction: rtl;
+  font-family: 'Rubik', sans-serif;
+}
+
+body {
+  background: url("./img/img1.png") no-repeat center center;
+  background-size: cover;
+  min-height: 100vh;
+  overflow-y: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.12) 50%, transparent 60%);
+  background-size: 300% 300%;
+  animation: flowDiagonalLight 12s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* אנימציות */
+@keyframes flowDiagonalLight {
+  0% { background-position: -150% -150%; }
+  100% { background-position: 150% 150%; }
+}
+
+/* מבנה כללי */
+.calendarBox {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.08);
+  max-width: 900px;
+  width: 90%;
+}
+
+.tableAndThisDate {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  justify-content: center;
+  z-index: 1;
+}
+
+/* כפתורים בצד ימין לגובה הטבלה */
+.floatingButtons {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+.floatingButtons button {
+  min-width: max-content;
+}
+
+
+.floatingButtons button {
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  padding: 10px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 14px;
+  backdrop-filter: blur(10px);
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.1);
+  width: 180px;
+}
+
+.floatingButtons button:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+}
+
+/* טבלה */
+table {
+  border-collapse: separate;
+  border-spacing: 8px 12px;
+  width: 100%;
+}
+
+td {
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+td:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.08);
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+
+.dateWthEvent {
+  background-color: rgba(255, 100, 100, 0.7) !important;
+}
+
+.thisDate {
+  background-color: rgba(80, 140, 255, 0.8) !important;
+}
+
+/* לוח תאריך נוכחי */
+.thisDateboard {
+  width: 250px;
+  height: 250px;
+  margin-top: 200px;
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(25px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.2);
+  padding: 14px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  /* margin-top: 80px; */
+    /* padding-top: 60px; */
+}
+
+.monthAndYear {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#month, #year {
+  font-size: 20px;
+  color: #eee;
+}
+
+#day {
+  font-size: 100px;
+  font-weight: bold;
+  color: white;
+}
+
+#dayWord {
+  font-size: 16px;
+  color: #ccc;
+}
+
+/* תיבת הצגת אירועים */
+.divWithEventDate {
+  width: 210px;
+  height: 280px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.3);
+  box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.15);
+  padding: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+  margin: 20px;
+  margin-top: -100px;
+}
+
+.event-card {
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 14px;
+  padding: 12px 16px;
+  width: 100%;
+  text-align: start;
+  font-size: 14px;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* כפתורי ניווט חודשים */
+button[type="button"] {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: rgba(56, 73, 151, 0.9);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button[type="button"]:hover {
+  background-color: rgba(56, 73, 151, 1);
+}
+
+.monthGo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.monthGo button {
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 8px 16px;
+  border-radius: 14px;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.monthGo button:hover {
+  background: rgba(255, 255, 255, 0.22);
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+/* .thisdateAndButtons {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 80px;
+} */
+
+.thisdateAndButtons {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; /* ✅ ממרכז את שני הריבועים ברוחב */
+  gap: 150px;
+}
+
+.calendarWrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 80px;
+  width: 100%;
+}
+
+.sideButtons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 80px; /* יישור לגובה התחלת לוח השנה */
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:40px;
+}
+
+.tableAndThisDate {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.thisdateAndButtons {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 150px;
+}
+
+.thisDateboard{
+  height: 210px;
+  width: 210px;
+  margin: 0;
+}
+
+
+.logout-button {
+  position: absolute; /* אפשר גם fixed או relative לפי הצורך */
+  top: 20px;
+  left: 1%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ff6b6b;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logout-button:hover {
+  background-color: #3756c0;
+}
+
+.logout-button svg {
+  width: 50%;
+  height: 50%;
+  display: block;
+  transform: translateX(-2px); /* תזוזה שמאלה */
+}
+
+.dateBoxWrapper {
+  margin-top: 42px;
+}
+
+/**/
+.user-profile {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 10px 18px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 100;
+  cursor: default;
+  transition: background 0.3s ease;
+}
+
+.user-profile:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+#userInitials {
+  background-color: #3756c0;
+  color: white;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}

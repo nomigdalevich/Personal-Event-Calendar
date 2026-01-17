@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>הוספת אירוע</title>
+  <script src="../פרויקט/event.js"></script>
+  <link rel="stylesheet" href="event.css" />
+</head>
+<body>
+
+  <form>
+  <h2>הוספת אירוע</h2>
+    <div class="divider"></div>
+
+<!-- <br> -->
+  <div class="form-group">
+    <label for="title">נושא האירוע:</label>
+    <input type="text" id="title">
+  </div>
+
+  <div class="form-group">
+    <label for="eventDate">תאריך:</label>
+    <input type="date" id="eventDate">
+  </div>
+
+  <div class="form-group">
+    <label for="start">זמן התחלה:</label>
+    <input type="time" id="start" class="time-input">
+  </div>
+
+  <div class="form-group">
+    <label for="finish">זמן סיום:</label>
+    <input type="time" id="finish" class="time-input">
+  </div>
+  <div class="divider"></div>
+
+  <div class="form-group full">
+    <label for="describe">תיאור האירוע:</label>
+    <br>
+    <textarea id="describe"></textarea>
+  </div>
+
+  <div id="message"></div>
+</form>
+
+<div class="button-container">
+  <button type="button" onclick="funSave()">לשמירה</button>
+  <button type="button" onclick="funCencel()">לביטול</button>
+  <button type="button" onclick="returnToC()">חזרה ללוח שנה</button>
+
+</div>
+</body>
+</html>

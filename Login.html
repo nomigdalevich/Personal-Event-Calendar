@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>התחברות</title>
+  <script src="Login.js"></script>
+  <link rel="stylesheet" href="login.css">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+
+<body>
+
+  <form>
+    <h1>התחברות</h1>
+    <div class="divText">
+      <label>שם:</label>
+      <input type="text" id="name" placeholder="הכנס את שמך" />
+      <label>סיסמה:</label>
+      <input type="text" id="password" placeholder="הכנס סיסמה" />
+    </div>
+
+    <button type="button" onclick="checkInArr()" id="entry">כניסה</button>
+
+    <button class="google-login" id="googleLoginBtn">
+      <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google Icon" />
+      התחברי עם Google
+    </button>
+
+
+    <div id="notFindThisUser"></div>
+    <div class="alt-login-text">
+      אין לך חשבון? <a href="form.html">צור חשבון עכשיו</a>
+    </div>
+  </form>
+
+</body>
+
+</html>

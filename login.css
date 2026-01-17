@@ -1,0 +1,347 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap');
+
+/* בסיס */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+  font-family: 'Rubik', sans-serif;
+}
+
+body {
+  background: url("./img/img1.png") no-repeat center center;
+  background-size: cover;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+/* תיבת התחברות */
+form {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.2);
+  max-width: 420px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  animation: fadeIn 1.2s ease-out forwards;
+  transform: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* הנפשה מלמעלה */
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* מעבר רקע מונפש באלכסון */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.12) 50%, transparent 60%);
+  background-size: 300% 300%;
+  animation: flowDiagonalLight 12s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes flowDiagonalLight {
+  0% {
+    background-position: -150% -150%;
+  }
+
+  100% {
+    background-position: 150% 150%;
+  }
+}
+
+h1 {
+  text-align: center;
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 40px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+/* h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: #fca0c2;
+  border-radius: 2px;
+} */
+  h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.15); /* שקיפות עדינה */
+  backdrop-filter: blur(10px); 
+ border-radius: 2px;
+}  
+
+label {
+  display: block;
+  color: #ffffff;
+  font-weight: 400;
+  margin-bottom: 8px;
+  font-size: 14px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 16px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #000000;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+input:focus {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+  outline: none;
+}
+
+input:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* כפתור כניסה עם אפקט מעבר */
+#entry {
+  width: 100%;
+  padding: 16px;
+  background: rgb(56, 73, 151);/**/
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 6px;
+  position: relative;
+  overflow: hidden;
+}
+
+#entry::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  /* background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent); */
+  background: linear-gradient(90deg, transparent, rgb(56, 73, 151), transparent);
+  /* transition: left 0.5s; */
+}
+
+#entry:hover::before {
+  left: 100%;
+}
+
+#entry:hover {
+  transform: none;
+  /* box-shadow: 0 5px 10px rgb(145, 157, 209); */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+#entry:active {
+  transform: translateY(0);
+}
+
+/* כפתור Google */
+.google-login {
+  width: 100%;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  color: rgb(56, 73, 151);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+.google-login img {
+  width: 20px;
+  height: 20px;
+}
+
+.google-login:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.5);
+  /**/
+  /* transform: translateY(-2px); */
+  transform: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.google-login:active {
+  animation: pulse 0.2s;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* הודעת שגיאה */
+/* #notFindThisUser {
+  text-align: center;
+  color: #ff6b6b;
+  font-size: 14px;
+  margin-bottom: 15px;
+  min-height: 20px;
+  padding: 8px;
+  border-radius: 8px;
+  background: rgba(255, 107, 107, 0.1);
+  display: none;
+  backdrop-filter: blur(10px);
+} */
+
+
+ /* #notFindThisUser {
+  display: none;
+  display: flex;
+  align-items: center;       
+  text-align: center;
+  color: #ff6b6b;
+  font-size: 14px;
+  margin-bottom: 15px;
+  min-height: 20px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: rgba(255, 107, 107, 0.1);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  max-width: 340px;
+  margin-inline: auto;       
+  line-height: 1.4;
+}
+ */
+
+ #notFindThisUser {
+  display: none;
+  text-align: center;
+  color: #ff6b6b;
+  font-size: 14px;
+  margin-top: 16px;
+  background: none;
+  backdrop-filter: none;
+  box-shadow: none;
+  padding: 0;
+  border: none;
+}
+
+
+/* מעבר לדף רישום */
+.alt-login-text {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+}
+
+.alt-login-text a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 400;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  transition: color 0.3s ease;
+}
+
+.alt-login-text a:hover {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: underline;
+}
+
+/* התאמה לנייד */
+@media (max-width: 480px) {
+  form {
+    padding: 30px 25px;
+    margin: 10px;
+  }
+
+  h1 {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  input[type="text"],
+  #entry,
+  .google-login {
+    padding: 14px;
+    font-size: 15px;
+  }
+}
+
+#password
+{
+  margin-bottom: 30px;
+}
